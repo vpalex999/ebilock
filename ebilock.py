@@ -1,5 +1,7 @@
 #  import binascii
+import struct
 from crccheck.crc import Crc16CcittFalse
+from crccheck.crc import Crc8
 
 """ Функция принимает телеграмму списком выводит в
 консоль основные данные и проверяет их корректность
@@ -68,7 +70,7 @@ telegramm_decode = {
             "LOOP_OK": "",
             "AREA_OK": "",
             "HUB_OK": "",
-            "NUM_OK": "",
+            "NUMBER_OK": "",
             "ML_CO": "",
             "SIZE": "",
             "TYPE_TLG": "",
@@ -80,7 +82,7 @@ telegramm_decode = {
     }
 
 
-# проверка на соответствие двубайтовых последовательностей
+# Проверка, сохранение на соответствие двубайтовых последовательностей
 def check_byte_flow(telegramm):
     status = True
     sources = telegramm.split(' ')
@@ -100,12 +102,13 @@ def check_byte_flow(telegramm):
     return status
 
 
+# Обработка заголовка пакета
 def check_header_packet(telegramm):
 
     status = True
     sources = telegramm.split(' ')
 
-    # проверка ID отправителя
+    # Проверка, сохранение ID отправителя
     tmp = int(sources[desc_header_packet["ID_SOURCE_IND"]], 16)
     if tmp > 1:
         print("Error!  ID_SOURCE = '{}' should be between 0 or 1".format(tmp))
@@ -113,7 +116,7 @@ def check_header_packet(telegramm):
     else:
         telegramm_decode["ID_SOURCE"] = desc_header_packet["ID"][str(tmp)]
 
-    # проверка ID получателя
+    # Проверка, сохранение ID получателя
     tmp = int(sources[desc_header_packet["ID_DEST_IND"]], 16)
     if tmp > 1:
         print("Error!  ID_DEST = '{}' should be between 0 or 1".format(tmp))
@@ -121,7 +124,7 @@ def check_header_packet(telegramm):
     else:
         telegramm_decode["ID_DEST"] = desc_header_packet["ID"][str(tmp)]
 
-    # Проверка типа пакета
+    # Проверка, сохранение типа пакета
     tmp = int(sources[desc_header_packet["TYPE_PACKET_IND"]], 16)
     key_stat = False
     type_id = desc_header_packet["TYPE_ID"]
@@ -134,7 +137,7 @@ def check_header_packet(telegramm):
         print("Value '{}' out of range type telegramm".format(tmp))
         status = False
 
-    # Проверка длинны пакета
+    # Проверка, сохранение соответствия указанной длинны пакета
     tmp = int(''.join(sources[desc_header_packet["START_DATA_IND"]:desc_header_packet["END_DATA_IND"] + 1]), 16)
     if tmp != len(sources):
         print("Error Checking length packet!!! data length = '{0}', actual length = '{1}'".format(tmp, len(sources)))
@@ -149,6 +152,7 @@ def check_header_packet(telegramm):
     return status
 
 
+# Проверка, сохранение счётчиков A/B пакета
 def check_packet_count_ab(telegramm):
     status = True
     sources = telegramm.split(' ')
@@ -170,6 +174,8 @@ def check_packet_count_ab(telegramm):
     return status
 
 
+# Чтение, сохранение длинны тела пакета - телеграмм A/B.
+# Поверка на максимально допустимое значение.
 def check_size_ab(telegramm):
     status = True
     sources = telegramm.split(' ')
@@ -183,6 +189,7 @@ def check_size_ab(telegramm):
     return status
 
 
+# Читаем, сохраняем тело пакета
 def check_telegramm_ab(telegramm):
     status = True
     sources = telegramm.split(' ')
@@ -193,7 +200,8 @@ def check_telegramm_ab(telegramm):
     return status
 
 
-def check_rc(telegramm):
+# Проверка контрольной суммы пакета CRC-16
+def check_rc_16(telegramm):
     sources = telegramm.split(' ')
     start_ab = desc_header_packet["END_SIZE_AB_IND"]
     end_ab = int(telegramm_decode["SIZE_AB"]) + start_ab
@@ -204,33 +212,108 @@ def check_rc(telegramm):
     if r_c == get_check_rc.upper():
         return True
     else:
+        print("Wrong checksum CRC-16 !!!")
         return False
 
 
-def check_count_packet(telegramm):
+def check_crc_8(telegramm):
+    status = True
+    r_c = ''.join(telegramm[:len(telegramm)-1])
+    body_packet = bytearray.fromhex(r_c)
+    get_crc = Crc8.calchex(body_packet)
+    pass
 
-    if telegramm_decode["PACKET_COUNT_A"] + telegramm_decode["PACKET_COUNT_B"] == 255:
+
+# Проверка счётчиков A/B цикла пакета
+def check_count_packet(telegramm):
+    count_packet = telegramm_decode["PACKET_COUNT_A"] + telegramm_decode["PACKET_COUNT_B"]
+    if count_packet == 255:
         return True
     else:
+        print("The sum of the values count A/B of packet '{}'\
+         is not equal to the value '255'".format(count_packet))
         return False
 
 
+# Проверка правильности принятой телеграммы
 def check_telegramm(telegramm):
     if not check_byte_flow(telegramm) or not\
         check_header_packet(telegramm) or not\
             check_packet_count_ab(telegramm) or not\
             check_size_ab(telegramm) or not\
             check_telegramm_ab(telegramm) or not\
-            check_rc(telegramm) or not\
+            check_rc_16(telegramm) or not\
             check_count_packet(telegramm):
         return False
     else:
         return True
 
-def decode_ab(telegram_ab):
-    
 
-    
+# битовый сдвиг вправо
+def bit_shift_right(string_byte):
+    tmp = int(string_byte, 16)
+    return tmp >> 1
+
+
+def decode_telegram(dsc_tel, telegramm_dec, type=None):
+    """ 
+    type = TLG_A or TLG_B
+    """
+
+    _dsc_tlg = dsc_tel["TLG_AB"]
+    telegramm = telegramm_dec[type]["BODY_TLG"]
+    # Читаем общий адрес ОК
+    _ok = ''.join(telegramm[_dsc_tlg["OK_START"]:_dsc_tlg["OK_END"]+1])
+    # Запишем общий адрес ОК
+    telegramm_dec[type]["ADDR_OK"] = _ok
+    # Читаем и запишем loop - петля
+    telegramm_dec[type]["LOOP_OK"] = _ok[0]
+    # Читаем и запишем area - область
+    telegramm_dec[type]["AREA_OK"] = bit_shift_right(_ok[1])
+    # Читаем и запишем hub - концентратор
+    telegramm_dec[type]["HUB_OK"] = _ok[2]
+    # Читаем и запишем number_ok - номер ОК
+    telegramm_dec[type]["NUMBER_OK"] = bit_shift_right(_ok[3])
+    # Читаем и запишем ML/CO
+    telegramm_dec[type]["ML_CO"] = telegramm[_dsc_tlg["ML_CO"]]
+    # Читаем и запишем длинну телеграммы
+    telegramm_dec[type]["SIZE"] = int(telegramm_dec[type]["ML_CO"][0], 16)
+    # Читаем и запишем тип телеграммы
+    telegramm_dec[type]["TYPE_TLG"] = int(telegramm_dec[type]["ML_CO"][1], 16)
+    # Читаем и запишем счетчик телеграммы
+    telegramm_dec[type]["COUNT"] = int(telegramm[_dsc_tlg["COUNT_AB"]], 16)
+    # Читаем и запишем блок DATA
+    telegramm_dec[type]["DATA"] = telegramm[_dsc_tlg["COUNT_AB"]+1:telegramm_dec[type]["SIZE"]-1]
+    # Читаем и запишем контрольную сумму
+    telegramm_dec[type]["RC"] = telegramm[telegramm_dec[type]["SIZE"]-1]
+    check_crc_8(telegramm[:len(telegramm)])
+    pass
+
+
+# Декодируем тело пакета - телеграммы A/B
+def check_decode_ab(telegram_ab):
+    _desc_tlg = desc_header_packet["TLG_AB"]
+    _telegramm_ab = telegramm_decode["TELEGRAMM_AB"]
+    # Вычисляем блок телеграммы A
+    telegramm_decode["TLG_A"]["ML_CO"] = _telegramm_ab[_desc_tlg["ML_CO"]]
+    telegramm_decode["TLG_A"]["SIZE"] = int(telegramm_decode["TLG_A"]["ML_CO"][0], 16)
+    telegramm_decode["TLG_A"]["BODY_TLG"] = _telegramm_ab[:telegramm_decode["TLG_A"]["SIZE"]]
+    # Вычисляем блок телеграммы B
+    telegramm_decode["TLG_B"]["BODY_TLG"] = _telegramm_ab[telegramm_decode["TLG_A"]["SIZE"]:]
+    # Сравниваем по длинне A и B
+    len_a = telegramm_decode["TLG_A"]["BODY_TLG"]
+    len_b = telegramm_decode["TLG_B"]["BODY_TLG"]
+    # Если размер телеграмм не совпадает
+    if not len(len_a) == len(len_b):
+        print("The length telegramm A({0}) - is not equal to the length telegramm B({1})".format(len_a, len_b))
+        return False
+    # Обработка телеграммы А
+    decode_telegram(desc_header_packet, telegramm_decode, "TLG_A")
+    # Обработка телеграммы B
+    decode_telegram(desc_header_packet, telegramm_decode, "TLG_B")
+
+
+    pass
 
 def read_telegramm(str_tel):
     pass

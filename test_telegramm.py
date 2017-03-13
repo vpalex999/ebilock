@@ -46,9 +46,14 @@ class TestTelegramm(unittest.TestCase):
         self.assertTrue(eb.check_telegramm_ab(TEST_TELEGRAMM))
         self.assertTrue(eb.check_rc(TEST_TELEGRAMM))
 
-    # @unittest.skip("")
+    @unittest.skip("")
     def test_check_telegramm(self):
         self.assertTrue(eb.check_telegramm(TEST_TELEGRAMM))
+
+    def test_decode_ab(self):
+        self.assertTrue(eb.check_telegramm(TEST_TELEGRAMM))
+        eb.check_decode_ab(TEST_TELEGRAMM)
+
 
 if __name__ == "__main__":
     unittest.main()
