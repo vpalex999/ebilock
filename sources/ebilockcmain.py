@@ -6,11 +6,20 @@ from sources.error import EbException
 class Edilock(object):
     """ class Ebilock
     """
-    def __init__(self, telegramm):
-            self.telegramm = telegramm.split(' ')
+    def __init__(self, telegramm, hdlc=None):
+            if hdlc is None:
+                self.telegramm = telegramm.split(' ')
+            else:
+                self.telegramm = telegramm
             if not self._check_byte_flow():
                 raise EbException("Error check flow")
 
+    @classmethod
+    def from_hdlc(cls, object):
+        telegramm = []
+        for item in object:
+            telegramm.append("{:02x}".format(int(item), 16).upper())
+        return cls(telegramm, "hdlc")
 
 # Описание структуры  Заголовка и тела сетевого пакета
     desc_header_packet = {
