@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="10.65" multi-file="no">
+  <meta>
+    <name>EHM</name>
+    <authors> Bubenshchikov</authors>
+    <description>Разработка модуля EHM</description>
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="actor" type="UmlActor" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="use-case" type="UmlUseCase" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="initial-state" type="UmlInitialState" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="state" type="UmlState" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="final-state" type="UmlFinalState" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="actor" type="UmlActor" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="use-case" type="UmlUseCase" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="relationship" type="UmlAssociation" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="initial-state" type="UmlInitialState" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="state" type="UmlState" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="general-transition" type="UmlTransition" />
+        <value>8</value>
+      </counter>
+      <counter>
+        <item-type type-id="final-state" type="UmlFinalState" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="transition" type="UmlProtocolTransition" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment" type="UmlComment" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment-connector" type="UmlCommentConnector" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>22</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlUseCaseDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlStateMachineDiagram</type>
+        <value>2</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management>
+    <persons>
+      <person id="P2fa0e180536b4fd6880c2c4f9969d126">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <tasks />
+    <requirements />
+    <issues />
+    <to-dos />
+  </management>
+  <glossary />
+  <types default="Python">
+    <type-sets>
+      <type-set file="Python.xml" />
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <filters />
+  <macros />
+  <items />
+  <models>
+    <model id="pe33d03987b254f50923c13761ad05305_323308142" name="Model 1" namespace="" order-index="1" expanded="true">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>03/19/2017 08:08:15</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-usecase" id="p4279ac6cad30453d9dce983064b4d28c_611544697" name="Система оповещения работающих на жд дороге" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-30,-95">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>03/19/2017 08:08:15</creation-date>
+          <change-date>03/19/2017 09:24:11</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di987930814164554434" cid="AC001" type="actor" name="Ebilock" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di354540637889725152" cid="UC001" type="use-case" name="Передача приказа в EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di803070999997911098" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di354540637889725152" to="di987930814164554434">
+            <style class="default" />
+            <relation from="di354540637889725152" to="di987930814164554434">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di146389826579439343" cid="AC001" type="actor" name="EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di390829665741503053" cid="UC001" type="use-case" name="Выполнить оповещения на CNS" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di579882880968395234" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di390829665741503053" to="di146389826579439343">
+            <style class="default" />
+            <relation from="di390829665741503053" to="di146389826579439343">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di366449127974255018" cid="AC001" type="actor" name="CNS" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di140706183872241973" cid="UC001" type="use-case" name="Передать статус оповещения в EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di828044548632353423" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di140706183872241973" to="di366449127974255018">
+            <style class="default" />
+            <relation from="di140706183872241973" to="di366449127974255018">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di701517272876021284" cid="AC001" type="actor" name="EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di475774329774008239" cid="UC001" type="use-case" name="Передать статус оповещения в Ebilock" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di999826531571225057" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di475774329774008239" to="di701517272876021284">
+            <style class="default" />
+            <relation from="di475774329774008239" to="di701517272876021284">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di362975933184713086" cid="AC001" type="actor" name="EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di137232989982700040" cid="UC001" type="use-case" name="Выполнить оповещения на CNS" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di460157513707928134" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di390829665741503053" to="di579882880968395234">
+            <style class="default" />
+            <relation from="di390829665741503053" to="di579882880968395234">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di248697154784200511" cid="AC001" type="actor" name="Admin" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di922954209682187466" cid="UC001" type="use-case" name="Конфигурация EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di249967414893672383" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di922954209682187466" to="di248697154784200511">
+            <style class="default" />
+            <relation from="di922954209682187466" to="di248697154784200511">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di446963334199268515" cid="AC001" type="actor" name="Admin" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di544144915722483563" cid="UC001" type="use-case" name="Конфигурация EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di225436811760738449" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di544144915722483563" to="di446963334199268515">
+            <style class="default" />
+            <relation from="di544144915722483563" to="di446963334199268515">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="di460794285500194462" cid="AC001" type="actor" name="Admin" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+            <style class="default" />
+          </item>
+          <item id="di235051341398181417" cid="UC001" type="use-case" name="Остановка, Запуск, Перезагрузка EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di557975865123409510" cid="REL001" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:17:44" from="di235051341398181417" to="di460794285500194462">
+            <style class="default" />
+            <relation from="di235051341398181417" to="di460794285500194462">
+              <start-role id="" name="" navigability="yes" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di987930814164554434" iid="c77d8af8a57a4ca5813d6b3dffd71ac6" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="43.29898" ay="20.7439" awidth="29.5" aheight="59" x="43.29898" y="20.7439" width="29.5" height="59" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di354540637889725152" iid="2acda1030cc9428ab3b60eddde7948be" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="286.299" ay="8.243896" awidth="135" aheight="84" x="286.299" y="8.243896" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di803070999997911098" iid="9998151a2d1743a4971fe384cbf22638" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="286" y1="50" x2="73" y2="51" start-border-pos="0.876846835726783" end-border-pos="0.377118644067797" name-position="0,0">
+              <points>
+                <point x="286" y="50" />
+                <point x="73" y="51" />
+              </points>
+            </layout>
+            <relation from="di354540637889725152" from-iid="2acda1030cc9428ab3b60eddde7948be" to="di987930814164554434" to-iid="c77d8af8a57a4ca5813d6b3dffd71ac6" />
+          </item>
+          <item id="di146389826579439343" iid="5b5fc689367a4a2ba28ecdfded60e2cf" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="43.29892" ay="312.8724" awidth="29.42526" aheight="58.85053" x="43.29892" y="312.8724" width="29.42526" height="58.85053" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di390829665741503053" iid="951ee790c3684fcdb24dce874d0510fe" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="286.2242" ay="300.3724" awidth="135" aheight="84" x="286.2242" y="300.3724" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di366449127974255018" iid="8e25f623dacf4227a41d544b6e69f238" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="43.07474" ay="463.17" awidth="29.42526" aheight="58.85052" x="43.07474" y="463.17" width="29.42526" height="58.85055" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di579882880968395234" iid="8be78e9eea1f4e4ab723fc172f54b3ed" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="286" y1="342" x2="73" y2="343" start-border-pos="0.876846040998186" end-border-pos="0.377118644067797" name-position="0,0">
+              <points>
+                <point x="286" y="342" />
+                <point x="73" y="343" />
+              </points>
+            </layout>
+            <relation from="di390829665741503053" from-iid="951ee790c3684fcdb24dce874d0510fe" to="di146389826579439343" to-iid="5b5fc689367a4a2ba28ecdfded60e2cf" />
+          </item>
+          <item id="di140706183872241973" iid="5c23358545da48409938de8f4d3aa93a" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="286.0747" ay="450.5953" awidth="135" aheight="84" x="286.0747" y="450.5953" width="135" height="84.00003" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di828044548632353423" iid="cddfe986cf7c4fd78e98ff0a95baae72" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="286" y1="492" x2="72" y2="493" start-border-pos="0.87713014511835" end-border-pos="0.376719288493031" name-position="0,0">
+              <points>
+                <point x="286" y="492" />
+                <point x="72" y="493" />
+              </points>
+            </layout>
+            <relation from="di140706183872241973" from-iid="5c23358545da48409938de8f4d3aa93a" to="di366449127974255018" to-iid="8e25f623dacf4227a41d544b6e69f238" />
+          </item>
+          <item id="di701517272876021284" iid="902aece5e069422499ed1b9cf19a0e6e" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="43.14948" ay="173.1329" awidth="29.42526" aheight="58.85052" x="43.14948" y="173.1329" width="29.42526" height="58.85052" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di475774329774008239" iid="36c84a55aed74da2b29700c725d930bd" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="286.1495" ay="161.4677" awidth="135" aheight="84" x="286.1495" y="161.4677" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di362975933184713086" iid="4f94cf5d84254b6aa87e85f18e24928a" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="43.54898" ay="313.2976" awidth="29" aheight="58" x="43.54898" y="313.2976" width="29" height="58" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di999826531571225057" iid="76081721fad849108ecea6afc764fea5" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="286" y1="203" x2="73" y2="203" start-border-pos="0.87675058274042" end-border-pos="0.376877060631172" name-position="0,0">
+              <points>
+                <point x="286" y="203" />
+                <point x="73" y="203" />
+              </points>
+            </layout>
+            <relation from="di475774329774008239" from-iid="36c84a55aed74da2b29700c725d930bd" to="di701517272876021284" to-iid="902aece5e069422499ed1b9cf19a0e6e" />
+          </item>
+          <item id="di137232989982700040" iid="251221450a2f4d8abefd7e79b2c67ce5" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="286.2242" ay="300.3724" awidth="135" aheight="84" x="286.2242" y="300.3724" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di460157513707928134" iid="bd6ecbc20d664037b8016829d8f9b2fd" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="286" y1="342" x2="180" y2="342" start-border-pos="0.876467477707636" end-border-pos="0.5" name-position="0,0">
+              <points>
+                <point x="286" y="342" />
+                <point x="180" y="342" />
+              </points>
+            </layout>
+            <relation from="di390829665741503053" from-iid="951ee790c3684fcdb24dce874d0510fe" to="di579882880968395234" to-iid="8be78e9eea1f4e4ab723fc172f54b3ed" />
+          </item>
+          <item id="di248697154784200511" iid="fe16e227ddff472a988b5a40c209819b" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="542" ay="54" awidth="29" aheight="58" x="542" y="54" width="29" height="59" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di446963334199268515" iid="9043de5e9dfe42d5bedb3053d2ae7cf9" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="542" ay="54" awidth="29" aheight="58" x="542" y="54" width="29" height="58" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di922954209682187466" iid="65685d483a964b78aa5e74e2f109c665" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="708.6884" ay="42.5" awidth="135" aheight="84" x="708.6884" y="42.5" width="135" height="96" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di544144915722483563" iid="fe9f0b3d78c54f90a04640256e48ea44" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="708.6884" ay="42.5" awidth="135" aheight="84" x="708.6884" y="42.5" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di249967414893672383" iid="8e9449f8fdb44e68baa13cafd3d00793" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="708" y1="84" x2="571" y2="83" start-border-pos="0.876846040998186" end-border-pos="0.377118644067797" name-position="0,0">
+              <points>
+                <point x="708" y="84" />
+                <point x="571" y="83" />
+              </points>
+            </layout>
+            <relation from="di922954209682187466" from-iid="65685d483a964b78aa5e74e2f109c665" to="di248697154784200511" to-iid="fe16e227ddff472a988b5a40c209819b" />
+          </item>
+          <item id="di225436811760738449" iid="8583bda78d9c4b3594e71db285056761" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="708" y1="84" x2="571" y2="83" start-border-pos="0.876846040998186" end-border-pos="0.377118644067797" name-position="0,0">
+              <points>
+                <point x="708" y="84" />
+                <point x="571" y="83" />
+              </points>
+            </layout>
+            <relation from="di544144915722483563" from-iid="fe9f0b3d78c54f90a04640256e48ea44" to="di446963334199268515" to-iid="9043de5e9dfe42d5bedb3053d2ae7cf9" />
+          </item>
+          <item id="di460794285500194462" iid="24c163f9f0524addb17dbd5855c19791" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
+            <layout ax="542" ay="194.6349" awidth="29" aheight="58" x="542" y="194.6349" width="29" height="58" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di235051341398181417" iid="63aa49da64e04af8a6246efe577de387" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
+            <layout ax="708.7631" ay="182.2522" awidth="135" aheight="84" x="708.7631" y="182.2522" width="135" height="84" angle="359.8979" />
+            <use-case />
+          </item>
+          <item id="di557975865123409510" iid="2138bddda29b45c79e4d0274d9069907" creation-date="03/19/2017 08:17:44" order-index="2" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="24.99999,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="708" y1="224" x2="571" y2="224" start-border-pos="0.876846040998186" end-border-pos="0.377118644067797" name-position="0,0">
+              <points>
+                <point x="708" y="224" />
+                <point x="571" y="224" />
+              </points>
+            </layout>
+            <relation from="di235051341398181417" from-iid="63aa49da64e04af8a6246efe577de387" to="di460794285500194462" to-iid="24c163f9f0524addb17dbd5855c19791" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-statechart" id="p9b9a1bb01d4c40389d8af820861adc43_931654065" name="Общая диаграмма состояний EHM" order-index="2" overview-order-index="0" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>03/19/2017 21:33:48</creation-date>
+          <change-date>03/19/2017 22:03:30</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di151920100790431752" cid="IS001" type="initial-state" name="InitialState1" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:11">
+            <style class="default" />
+          </item>
+          <item id="di625194792128619396" cid="ST001" type="state" name="Безопасный режим" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+            <state-invariant />
+            <actions>
+              <action name="entry" behavior="Обнуление счётчиков A/B; Перевод в безопасный режим зон оповещения; Запуск/Перезапуск цикла приёма телеграмм" />
+              <action name="do" behavior="Ожидание прихода телеграммы" />
+              <action name="" behavior="" />
+            </actions>
+          </item>
+          <item id="di265659612471950216" cid="ELEM001" type="general-transition" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:35:16" from="di151920100790431752" to="di625194792128619396">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Segoe UI;10;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+            <transition guard="" behaviourExpression="">
+              <trigger />
+            </transition>
+          </item>
+          <item id="di647381026103938441" cid="ST001" type="state" name="Приём телеграмм" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+            <state-invariant />
+            <actions>
+              <action name="do" behavior="Обработка приказа; Вызов зоны оповещения; Передача статуса" />
+              <action name="" behavior="" />
+            </actions>
+          </item>
+          <item id="di879203906900326590" cid="FS001" type="final-state" name="FinalState1" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:38:00">
+            <style class="default" />
+          </item>
+          <item id="di272762951487102980" cid="ELEM002" type="general-transition" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:38:09" from="di647381026103938441" to="di879203906900326590">
+            <style class="default" />
+            <transition guard="" behaviourExpression="" />
+          </item>
+          <item id="di105435718662904610" cid="ELEM003" type="general-transition" name="Приход телеграммы" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:38:49" from="di625194792128619396" to="di647381026103938441">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Segoe UI;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="5" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+            <transition guard="" behaviourExpression="">
+              <trigger>Получение телеграммы приказа</trigger>
+            </transition>
+          </item>
+          <item id="di458918011350056883" cid="ELEM006" type="general-transition" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:44:07" from="di647381026103938441" to="di625194792128619396">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Segoe UI;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="forward-diagonal" color="#FFFFFFFF" color2="#FFEBEBEB" />
+              <border color="#FF000000" width="4" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+            <transition guard="" behaviourExpression="">
+              <trigger>нет корректного приказа в течение 1.5.с.</trigger>
+              <trigger>Нет приказа в течение 1.5с.</trigger>
+              <trigger>Нет пакетов с приказом в течение 1.5с.</trigger>
+            </transition>
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di151920100790431752" iid="04e243729745418d9e8feb83e2bce478" creation-date="03/19/2017 21:34:11" order-index="0" type="entity">
+            <layout ax="96" ay="377" awidth="25" aheight="25" x="96" y="377" width="25" height="25" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di625194792128619396" iid="87ecf506d9c64d7a9e16f4ed49a509b0" creation-date="03/19/2017 21:34:25" order-index="1" type="entity">
+            <layout ax="223" ay="303.5" awidth="233" aheight="172" x="223" y="303.5" width="233" height="172" />
+          </item>
+          <item id="di265659612471950216" iid="3298c66b480641a88e0a32f14975a835" creation-date="03/19/2017 21:35:16" order-index="2" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="true" lock-to-fields="false" auto-path="" x1="121" y1="390" x2="223" y2="390" start-border-pos="0.38" end-border-pos="0.875" name-position="0,0">
+              <points>
+                <point x="121" y="390" />
+                <point x="223" y="390" />
+              </points>
+            </layout>
+            <relation from="di151920100790431752" from-iid="04e243729745418d9e8feb83e2bce478" to="di625194792128619396" to-iid="87ecf506d9c64d7a9e16f4ed49a509b0" />
+          </item>
+          <item id="di647381026103938441" iid="95c825a5a3e647dfb5dff382b89ba364" creation-date="03/19/2017 21:34:25" order-index="1" type="entity">
+            <layout ax="558" ay="302.5" awidth="177" aheight="172" x="558" y="302.5" width="177" height="172" />
+          </item>
+          <item id="di879203906900326590" iid="7f91722a52e842c0a4c51085e5066427" creation-date="03/19/2017 21:38:00" order-index="3" type="entity">
+            <layout ax="837" ay="376" awidth="25" aheight="25" x="837" y="376" width="25" height="25" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di272762951487102980" iid="c77318cce7e24ac2b4fd9049f0c10cef" creation-date="03/19/2017 21:38:09" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="false" lock-to-fields="false" auto-path="" x1="735" y1="387" x2="837" y2="388" start-border-pos="0.3725" end-border-pos="0.88113037109375" name-position="0,0">
+              <points>
+                <point x="735" y="387" />
+                <point x="837" y="388" />
+              </points>
+            </layout>
+            <relation from="di647381026103938441" from-iid="95c825a5a3e647dfb5dff382b89ba364" to="di879203906900326590" to-iid="7f91722a52e842c0a4c51085e5066427" />
+          </item>
+          <item id="di105435718662904610" iid="c39a096a6e234e589820ee9f6d5ae821" creation-date="03/19/2017 21:38:49" order-index="5" type="relation">
+            <layout line-style="perpendicular" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="344" y1="304" x2="650" y2="302" start-border-pos="0.129943502824859" end-border-pos="0.129943502824859" name-position="7,-16">
+              <points>
+                <point x="344" y="304" />
+                <point x="650" y="302" />
+              </points>
+            </layout>
+            <relation from="di625194792128619396" from-iid="87ecf506d9c64d7a9e16f4ed49a509b0" to="di647381026103938441" to-iid="95c825a5a3e647dfb5dff382b89ba364" />
+          </item>
+          <item id="di458918011350056883" iid="e43fd6dca5a2473d866e482f64617fdb" creation-date="03/19/2017 21:44:07" order-index="6" type="relation">
+            <layout line-style="perpendicular" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="646" y1="474" x2="340" y2="476" start-border-pos="0.625706214689266" end-border-pos="0.624293785310734" name-position="-2,52" name-width="304">
+              <points>
+                <point x="646" y="474" />
+                <point x="340" y="476" />
+              </points>
+            </layout>
+            <relation from="di647381026103938441" from-iid="95c825a5a3e647dfb5dff382b89ba364" to="di625194792128619396" to-iid="87ecf506d9c64d7a9e16f4ed49a509b0" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+  <documents />
+  <document-templates />
+</sim-project>
