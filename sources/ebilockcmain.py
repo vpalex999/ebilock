@@ -6,20 +6,31 @@ from sources.error import EbException
 class Edilock(object):
     """ class Ebilock
     """
-    def __init__(self, telegramm, hdlc=None):
-            if hdlc is None:
+    def __init__(self, telegramm, *args):
+            self.arg = args
+            if "hdlc" not in args:
                 self.telegramm = telegramm.split(' ')
             else:
                 self.telegramm = telegramm
             if not self._check_byte_flow():
                 raise EbException("Error check flow")
 
+    # Конструктор для приёма телеграммы в hex формате
     @classmethod
     def from_hdlc(cls, object):
         telegramm = []
         for item in object:
             telegramm.append("{:02x}".format(int(item), 16).upper())
         return cls(telegramm, "hdlc")
+
+    # Конструктор для тестов
+    @classmethod
+    def from_test(cls, object):
+        return cls(object, "test")
+
+
+    # Переменная - возвращает статус обработки телеграммы
+    STATUS_TLG = "OK"
 
 # Описание структуры  Заголовка и тела сетевого пакета
     desc_header_packet = {
@@ -105,22 +116,22 @@ class Edilock(object):
         status = True
         sources = self.telegramm
         if len(sources) < 20:
-            print("Invalid package '{}' 2xByte, min = 26 2xByte".format(len(sources)))
-            #return False
+            self.STATUS_TLG = "Invalid package '{}' 2xByte, min = 26 2xByte".format(len(sources))
+
         for item in sources:
             if item == '':
                 status = False
-                print("Empty value by index '{}'".format(sources.index("")))
+                self.STATUS_TLG = "Empty value by index '{}'".format(sources.index(""))
                 break
             if len(item) != 2:
                 status = False
-                print("Length value '{}' is not equal to 2".format(item))
+                self.STATUS_TLG = "Length value '{}' is not equal to 2".format(item)
                 break
         self.telegramm_decode["PACKET"] = sources
         return status
 
     # Декодирование заголовка пакета приказа
-    def check_header_packet(self):
+    def _check_header_packet(self):
         """ Decoding the packet header\
         and writing data to a dictionary.\n
         check_header_packet()\n
@@ -133,18 +144,16 @@ class Edilock(object):
         # Проверка, сохранение ID отправителя
         tmp = int(sources[self.desc_header_packet["ID_SOURCE_IND"]], 16)
         if tmp > 1:
-            print("Error!  ID_SOURCE = '{}' should be between 0 or 1".format(tmp))
+            self.STATUS_TLG = "Error!  ID_SOURCE = '{}' should be between 0 or 1".format(tmp)
             status = False
         else:
-            # self.telegramm_decode["ID_SOURCE"] = self.desc_header_packet["ID"][str(tmp)]
             self.telegramm_decode["ID_SOURCE"] = tmp
         # Проверка, сохранение ID получателя
         tmp = int(sources[self.desc_header_packet["ID_DEST_IND"]], 16)
         if tmp > 1:
-            print("Error!  ID_DEST = '{}' should be between 0 or 1".format(tmp))
+            self.STATUS_TLG = "Error!  ID_DEST = '{}' should be between 0 or 1".format(tmp)
             status = False
         else:
-            # self.telegramm_decode["ID_DEST"] = self.desc_header_packet["ID"][str(tmp)]
             self.telegramm_decode["ID_DEST"] = tmp
 
         # Проверка, сохранение типа пакета
@@ -157,25 +166,25 @@ class Edilock(object):
                 key_stat = True
                 break
         if not key_stat:
-            print("Value '{}' out of range type telegramm".format(tmp))
+            self.STATUS_TLG = "Value '{}' out of range type telegramm".format(tmp)
             status = False
 
         # Проверка, сохранение соответствия указанной длинны пакета
         tmp = int(''.join(sources[self.desc_header_packet["START_DATA_IND"]:self.desc_header_packet["END_DATA_IND"] + 1]), 16)
         if tmp != len(sources):
-            print("Error Checking length packet!!! data length = '{0}', actual length = '{1}'".format(tmp, len(sources)))
+            self.STATUS_TLG = "Error Checking length packet!!! data length = '{0}', actual length = '{1}'".format(tmp, len(sources))
             status = False
         else:
             self.telegramm_decode["LENGTH_PACKET"] = tmp
         # Проверка на максимально допустимое значение длинны пакета приказа
         tmp = int(''.join(sources[self.desc_header_packet["START_SIZE_AB_IND"]:self.desc_header_packet["END_SIZE_AB_IND"]]), 16)
         if tmp > 4096:
-            print("Too long data > 4096 bytes - '{}'".format(tmp))
+            self.STATUS_TLG = "Too long data > 4096 bytes - '{}'".format(tmp)
             status = False
         # Проверка NULL байта
         tmp = int(sources[self.desc_header_packet["NUL_BYTE_IND"]])
         if tmp != 0:
-            print("Invalid header structure, Zero byte value = '{}', must be 0".format(tmp))
+            self.STATUS_TLG = "Invalid header structure, Zero byte value = '{}', must be 0".format(tmp)
             status = False
         return status
 
@@ -189,43 +198,44 @@ class Edilock(object):
 
         ct_A = self.telegramm_decode["PACKET_COUNT_A"]
         if ct_A == 0 or ct_A == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_A))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_A)
             return False
         ct_B = self.telegramm_decode["PACKET_COUNT_B"]
         if ct_B == 0 or ct_B == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_B))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_B)
             return False
         ct_a = self.telegramm_decode["TLG_A"]["COUNT"]
         if ct_a == 0 or ct_a == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_a))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_a)
             return False
         ct_b = self.telegramm_decode["TLG_B"]["COUNT"]
         if ct_b == 0 or ct_b == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_b))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_b)
             return False
         if ct_A + ct_B == 255:
             if ct_a + ct_b == 255:
                 if ct_A - ct_a == 0 and ct_B - ct_b == 0:
                     return True
                 else:
-                    print("Sum values count packet and count telegramm are not equal")
+                    self.STATUS_TLG = "Sum values count packet and count telegramm are not equal"
+                    return False
             else:
                 if ct_A - ct_a == 0:
-                    print("Error_ctb")
+                    self.STATUS_TLG = "Error_ctb"
                     return False
                 else:
-                    print("Error_cta")
+                    self.STATUS_TLG = "Error_cta"
                     return False
         else:
             if ct_A - ct_a == 0:
-                print("Error_ctb_gl")
+                self.STATUS_TLG = "Error_ctb_gl"
                 return False
             else:
-                print("Error_cta_gl")
+                self.STATUS_TLG = "Error_cta_gl"
                 return False
 
     # Проверка длинны блока телеграмм A/B
-    def check_body_telegramm_ab(self):
+    def _check_body_telegramm_ab(self):
         """ Check the length of the block of telegrams A / B\n
         check_telegramm_ab("00, ff")\n
         ARG: String of bytes in hex.
@@ -234,27 +244,26 @@ class Edilock(object):
         # Читаем байт с длинной телеграммы A/B
         size_ab = int(''.join(sources[self.desc_header_packet["START_SIZE_AB_IND"]:self.desc_header_packet["END_SIZE_AB_IND"]]), 16)
         if size_ab == 0:
-            print("Empty data A/B - '{}'".format(size_ab))
+            self.STATUS_TLG = "Empty data A/B - '{}'".format(size_ab)
             return False
         # сохраняем размер телеграммы
         len_tlg_ab = self.telegramm_decode["LENGTH_PACKET"] - 14
         if not len_tlg_ab == size_ab:
-            print("Error len A/B")
+            self.STATUS_TLG = "Error len A/B"
             return False
         self.telegramm_decode["SIZE_AB"] = size_ab
         start_ab = self.desc_header_packet["END_SIZE_AB_IND"]
         end_ab = size_ab + start_ab
         tlg_ab = sources[start_ab:end_ab]
         if not size_ab == len(tlg_ab):
-            print("packet length '{0}' is not equal to the value size A/B '{}'".format(len(tlg_ab), size_ab))
+            self.STATUS_TLG = "packet length '{0}' is not equal to the value size A/B '{}'".format(len(tlg_ab), size_ab)
             return False
         else:
             self.telegramm_decode["TELEGRAMM_AB"] = tlg_ab
-            #len_tlg_ab = self.telegramm_decode["LENGTH_PACKET"] - 14
             if size_ab == len_tlg_ab:
                 return True
             else:
-                print("packet length '{0}' is not equal to the value size A/B '{}'".format(len_tlg_ab, size_ab))
+                self.STATUS_TLG = "packet length '{0}' is not equal to the value size A/B '{}'".format(len_tlg_ab, size_ab)
             return False
 
     # Проверка контрольной суммы пакета CRC-16
@@ -272,7 +281,7 @@ class Edilock(object):
         if r_c == get_check_rc.upper():
             return True
         else:
-            print("Wrong checksum CRC-16 !!!")
+            self.STATUS_TLG = "Wrong checksum CRC-16 !!!"
             return False
 
     # битовый сдвиг вправо
@@ -288,7 +297,7 @@ class Edilock(object):
             tmp.append(str_up.upper())
         return tmp
 
-    def decode_telegram(self, dsc_tel, telegramm_dec, type=None):
+    def _decode_telegram(self, dsc_tel, telegramm_dec, type=None):
         """
         type = TLG_A or TLG_B
         """
@@ -323,13 +332,12 @@ class Edilock(object):
             str(telegramm_dec[type]["ML_CO"]) + \
             str(''.join(self.telegramm_decode[type]["DATA"]))
         if not telegramm_dec[type]["RC"] == crc8(block_crc):
-            #print("Wrong checksum CRC-8 !!!")
             return False
         else:
             return True
 
     # Декодируем блок DATA
-    def decode_zone_status(self, data_list):
+    def _decode_zone_status(self, data_list):
         status_zone = {}
         zon = data_list[::-1]
         try:
@@ -341,15 +349,16 @@ class Edilock(object):
                 print("")
                 for key in range(0, 4):
                     status_zone[key_zone_+key] = int(bin_zones[zon_offset:zon_offset_str], 2)
-                    print("Zona_{} = {}".format(
-                        key_zone_ + key, int(bin_zones[zon_offset:zon_offset_str], 2)))
+                    if "zone" in self.arg:
+                        print("Zona_{} = {}".format(
+                            key_zone_ + key, int(bin_zones[zon_offset:zon_offset_str], 2)))
                     zon_offset += -2
                     zon_offset_str -= 2
                 key_zone_ += key + 1
             self.telegramm_decode["STATUS_ZONE"] = status_zone
             return True
         except:
-            print("Error decode block DATA")
+            self.STATUS_TLG = "Error decode block DATA"
             return False
 
     def _check_id_packet(self):
@@ -361,10 +370,10 @@ class Edilock(object):
             # Если тип передачи IPU_GATE_RF => EHA
             if type_packet == 2 or type_packet == 4 or type_packet == 5:
                 if source_id == 0:
-                    print("Error ID resive.")
+                    self.STATUS_TLG = "Error ID resive."
                     return False
                 else:
-                    print("Error ID Send.")
+                    self.STATUS_TLG = "Error ID Send."
                     return False
         else:
             return True
@@ -378,13 +387,13 @@ class Edilock(object):
            source_id == 1 and dest_id == 0 and type_packet == 2 or\
            source_id == 1 and dest_id == 0 and type_packet == 4 or\
            source_id == 1 and dest_id == 0 and type_packet == 6:
-                print("Error TYPE_ID")
+                self.STATUS_TLG = "Error TYPE_ID"
                 return False
         else:
             return True
 
     # Декодируем тело пакета - телеграммы A/B
-    def check_decode_ab(self):
+    def _check_decode_ab(self):
         # Описание байтов телеграммы A/B
 
         _desc_tlg = self.desc_header_packet["TLG_AB"]
@@ -401,13 +410,13 @@ class Edilock(object):
 
         if (type_packet == 2 and type_co == 4 or type_packet == 2 and type_co == 6):
             if source_id != 0:
-                print("Error ID Send.")
+                self.STATUS_TLG = "Error ID Send."
                 return False
             if dest_id == 0:
-                print("Error ID Resive.")
+                self.STATUS_TLG = "Error ID Resive."
                 return False
             if type_co == 6:  # Если первым пришёл приказ, телеграмма B
-                print("There is no telegram A")
+                self.STATUS_TLG = "There is no telegram A"
                 return False
             elif type_co == 4:  # Приказ, телеграмма A
                 self.telegramm_decode["TLG_A"]["ML_CO"] = _telegramm_ab[_desc_tlg["ML_CO"]]
@@ -423,56 +432,45 @@ class Edilock(object):
                 len_b = len(self.telegramm_decode["TLG_B"]["BODY_TLG"])
                 # Если нет телеграммы B
                 if len_b == 0:
-                    print("There is no telegram B")
+                    self.STATUS_TLG = "There is no telegram B"
                     return False
                 # Если размер телеграмм не совпадает
                 if not len_a == len_b:
                     # Пишем ошибку
-                    print("The length telegramm A({0}) - is not equal to the length telegramm B({1})".format(len_a, len_b))
+                    self.STATUS_TLG = "The length telegramm A({0}) - is not equal to the length telegramm B({1})".format(len_a, len_b)
                     # Прерываем работу
                     return False
                 else:
                     # Обработка телеграммы А. Проверка CRC
-                    crc_a_status = self.decode_telegram(self.desc_header_packet, self.telegramm_decode, "TLG_A")
-                    crc_b_status = self.decode_telegram(self.desc_header_packet, self.telegramm_decode, "TLG_B")
+                    crc_a_status = self._decode_telegram(self.desc_header_packet, self.telegramm_decode, "TLG_A")
+                    crc_b_status = self._decode_telegram(self.desc_header_packet, self.telegramm_decode, "TLG_B")
                     if not crc_a_status and not crc_b_status:
-                        print("Wrong checksum CRC-8 of the telegramms A and B!!!")
+                        self.STATUS_TLG = "Wrong checksum CRC-8 of the telegramms A and B!!!"
                         return False
                     if not crc_a_status:
-                        print("Wrong checksum CRC-8 of the telegramm A!!!")
+                        self.STATUS_TLG = "Wrong checksum CRC-8 of the telegramm A!!!"
                         return False
                         # Обработка телеграммы B. Проверка CRC
                     if not crc_b_status:
-                        print("Wrong checksum CRC-8 of the telegramm B!!!")
+                        self.STATUS_TLG = "Wrong checksum CRC-8 of the telegramm B!!!"
                         return False
                         # Проверка идентичности телеграмм A/B
                     if not self.telegramm_decode["TLG_A"]["DATA"] == self._inversion_byte(self.telegramm_decode["TLG_B"]["DATA"]):
-                        print("The data telegramm A is not equal to the data telegramm B")
+                        self.STATUS_TLG = "The data telegramm A is not equal to the data telegramm B"
                         return False
                     else:
                         self.telegramm_decode["PACKET_COUNT_A"] = int(self.telegramm[self.desc_header_packet["PACKET_COUNT_A_IND"]], 16)
                         self.telegramm_decode["PACKET_COUNT_B"] = int(self.telegramm[self.desc_header_packet["PACKET_COUNT_B_IND"]], 16)
-                        ## Проверка счётчиков телеграмм A/B
-                        #count_ab = self.telegramm_decode["TLG_A"]["COUNT"] + self.telegramm_decode["TLG_B"]["COUNT"]
-                        #if not count_ab == 255:
-                        #    print("The sum of the values count A/B of telegramm A/B '{}'\
-                        #    is not equal to the value '255'".format(count_ab))
-                        #    return False
-                        #else:
-                        # if not self.decode_zone_status(self.telegramm_decode["TLG_A"]["DATA"]):
-                        #     print("Wrong decode block Data")
-                        #     return False
-                        # else:
                         return True
 
         #  Если это передача статусов
         if (type_packet == 3 and type_co == 8 or type_packet == 3 and type_co == 8):
-            print("This send status")
+            self.STATUS_TLG = "This send status"
         else:
-            print("Error checking  type CO of telegramm. CO = '{}, TYPE_PACKET = '{}'".format(type_co, type_packet))
+            self.STATUS_TLG = "Error checking  type CO of telegramm. CO = '{}, TYPE_PACKET = '{}'".format(type_co, type_packet)
             return False
 
-    def check_global_count_order(self):
+    def _check_global_count_order(self):
         """ Reading and checking the consistency\
         of counters A / B order package\n
         check_count_ab_packet()\n
@@ -481,59 +479,55 @@ class Edilock(object):
 
         ct_A = self.telegramm_decode["PACKET_COUNT_A"]
         if ct_A == 0 or ct_A == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_A))
+            self.STATUS_TLG ="The value can not be 0 or 255:'{}'".format(ct_A)
             return False
         ct_B = self.telegramm_decode["PACKET_COUNT_B"]
         if ct_B == 0 or ct_B == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_B))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_B)
             return False
         ct_a = self.telegramm_decode["TLG_A"]["COUNT"]
         if ct_a == 0 or ct_a == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_a))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_a)
             return False
         ct_b = self.telegramm_decode["TLG_B"]["COUNT"]
         if ct_b == 0 or ct_b == 255:
-            print("The value can not be 0 or 255: '{}'".format(ct_b))
+            self.STATUS_TLG = "The value can not be 0 or 255:'{}'".format(ct_b)
             return False
         if ct_A + ct_B == 255:
             if ct_a + ct_b == 255:
                 if ct_A - ct_a == 0 and ct_B - ct_b == 0:
                     return True
                 else:
-                    print("Sum values count packet and count telegramm are not equal")
+                    self.STATUS_TLG = "Sum values count packet and count telegramm are not equal"
             else:
                 if ct_A - ct_a == 0:
-                    print("Error_ctb")
+                    self.STATUS_TLG = "Error_ctb"
                     return False
                 else:
-                    print("Error_cta")
+                    self.STATUS_TLG = "Error_cta"
                     return False
         else:
             if ct_A - ct_a == 0:
-                print("Error_ctb_gl")
+                self.STATUS_TLG = "Error_ctb_gl"
                 return False
             else:
-                print("Error_cta_gl")
+                self.STATUS_TLG = "Error_cta_gl"
                 return False
-
-        ## Проверка счётчиков телеграмм A/B
-        #if self.telegramm_decode["TLG_A"]["COUNT"] == self.telegramm_decode["PACKET_COUNT_A"] and\
-        # self.telegramm_decode["TLG_B"]["COUNT"] == self.telegramm_decode["PACKET_COUNT_B"]:
-        #    return True
-        #else:
-        #    print("Summ Count A/B of packet is not equal to the summ count telegramm A/B")
-        #    return False
 
     # Проверка правильности принятой телеграммы
     def check_telegramm(self):
+        status = True
         if not self._check_rc_16() or not\
-                self.check_header_packet() or not\
-                self.check_body_telegramm_ab() or not\
+                self._check_header_packet() or not\
+                self._check_body_telegramm_ab() or not\
                 self._check_id_packet() or not\
                 self._check_type_packet() or not\
-                self.check_decode_ab() or not\
-                self.check_global_count_order() or not\
-                self.decode_zone_status(''.join(self.telegramm_decode['TLG_A']['DATA'])):
-            return False
+                self._check_decode_ab() or not\
+                self._check_global_count_order() or not\
+                self._decode_zone_status(''.join(self.telegramm_decode['TLG_A']['DATA'])):
+                status = False
+        if "test" in self.arg:
+            print(self.STATUS_TLG)
+            return status
         else:
-            return True
+            return self.STATUS_TLG

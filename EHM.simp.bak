@@ -71,7 +71,7 @@
       </counter>
       <counter>
         <item-type type-id="" type="AbstractElementGroup" />
-        <value>322</value>
+        <value>346</value>
       </counter>
       <counter>
         <item-type type-id="" type="UniversalConnector" />
@@ -426,6 +426,264 @@
           <revision-count>0</revision-count>
           <version />
         </meta>
+        <documentation>
+          <text>
+            <styles />
+            <content>
+              <paragraph>
+                <style />
+                <p>
+                  <t>Тесты:
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>1. </t>
+                </p>
+                <p>
+                  <t>Запуск </t>
+                </p>
+                <p>
+                  <t>-&gt;</t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>2. </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>режим </t>
+                </p>
+                <p>
+                  <t>оповещения
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3. </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим(три </t>
+                </p>
+                <p>
+                  <t>условия)
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.1. </t>
+                </p>
+                <p>
+                  <t>Отсутствие </t>
+                </p>
+                <p>
+                  <t>телеграмм </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.2. </t>
+                </p>
+                <p>
+                  <t>Отсутствие </t>
+                </p>
+                <p>
+                  <t>приказа </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>пакете </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.3. </t>
+                </p>
+                <p>
+                  <t>Некорректный </t>
+                </p>
+                <p>
+                  <t>приказ </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4. </t>
+                </p>
+                <p>
+                  <t>Завершение </t>
+                </p>
+                <p>
+                  <t>работы
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4.1. </t>
+                </p>
+                <p>
+                  <t>Программно </t>
+                </p>
+                <p>
+                  <t>- </t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>(переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим </t>
+                </p>
+                <p>
+                  <t>-&gt;</t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>выключение)
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4.2. </t>
+                </p>
+                <p>
+                  <t>уБИЙСТВО </t>
+                </p>
+                <p>
+                  <t>ДЕМОНА </t>
+                </p>
+                <p>
+                  <t>?
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>5. </t>
+                </p>
+                <p>
+                  <t>Перезагрузка </t>
+                </p>
+                <p>
+                  <t>-&gt; </t>
+                </p>
+                <p>
+                  <t>п.1
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+            </content>
+          </text>
+        </documentation>
         <abstract-items>
           <item id="di151920100790431752" cid="IS001" type="initial-state" name="InitialState1" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:11">
             <style class="default" />
@@ -487,7 +745,7 @@
               <trigger />
             </transition>
           </item>
-          <item id="di647381026103938441" cid="ST001" type="state" name="Приём телеграмм" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
+          <item id="di647381026103938441" cid="ST001" type="state" name="Оповещение зон" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
             <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
               <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
               <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />

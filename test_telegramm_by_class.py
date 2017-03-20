@@ -10,6 +10,7 @@ ERR_CRCB = "00 01 02 00 00 00 1A 00 04 FB 00 0C 72 07 64 04 E7 69 72 07 66 FB 18
 ERR_CRCAB = "00 01 02 00 00 00 1A 00 04 FB 00 0C 72 07 64 04 E7 6E 72 07 66 FB 18 54 F6 F0"
 ERR_NOT_A = "00 01 02 00 00 00 14 00 03 FC 00 06 72 07 66 FC 18 4F EC B6"
 ERR_NOT_B = "00 01 02 00 00 00 14 00 03 FC 00 06 72 07 64 03 E7 69 89 E6"
+ERR_NOT_AB = "00 01 02 00 00 00 0E 00 06 F9 00 00 58 C3"
 ERR_CONC = "00 01 02 00 00 00 1A 00 04 FB 00 0C 72 07 64 04 E7 69 72 07 66 FB E7 C2 0F 34"
 ERR_CO = "00 01 02 00 00 00 1A 00 04 FB 00 0C 72 07 68 04 E7 99 72 07 6C FB 18 C7 FC 23"
 ERR_CRC16 = "00 01 02 00 00 00 1A 00 04 FB 00 0C 72 07 64 04 E7 69 72 07 66 FB 18 4F 4C F1"
@@ -33,112 +34,117 @@ class TestTelegramm(unittest.TestCase):
 
     # @unittest.skip("")
     def test_check_telegramm_ok(self):
-        tlg = ebm.Edilock(TEST_OK)
+        tlg = ebm.Edilock.from_test(TEST_OK)
         self.assertTrue(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_cta(self):
-        tlg = ebm.Edilock(ERR_CTA)
+        tlg = ebm.Edilock.from_test(ERR_CTA)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_ctb(self):
-        tlg = ebm.Edilock(ERR_CTB)
+        tlg = ebm.Edilock.from_test(ERR_CTB)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_ctab(self):
-        tlg = ebm.Edilock(ERR_CTAB)
+        tlg = ebm.Edilock.from_test(ERR_CTAB)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_crca(self):
-        tlg = ebm.Edilock(ERR_CRCA)
+        tlg = ebm.Edilock.from_test(ERR_CRCA)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_crcb(self):
-        tlg = ebm.Edilock(ERR_CRCB)
+        tlg = ebm.Edilock.from_test(ERR_CRCB)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_crcab(self):
-        tlg = ebm.Edilock(ERR_CRCAB)
+        tlg = ebm.Edilock.from_test(ERR_CRCAB)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_not_a(self):
-        tlg = ebm.Edilock(ERR_NOT_A)
+        tlg = ebm.Edilock.from_test(ERR_NOT_A)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_not_b(self):
-        tlg = ebm.Edilock(ERR_NOT_B)
+        tlg = ebm.Edilock.from_test(ERR_NOT_B)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_conc(self):
-        tlg = ebm.Edilock(ERR_CONC)
+        tlg = ebm.Edilock.from_test(ERR_CONC)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_co(self):
-        tlg = ebm.Edilock(ERR_CO)
+        tlg = ebm.Edilock.from_test(ERR_CO)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_crc16(self):
-        tlg = ebm.Edilock(ERR_CRC16)
+        tlg = ebm.Edilock.from_test(ERR_CRC16)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_send(self):
-        tlg = ebm.Edilock(ERR_SEND)
+        tlg = ebm.Edilock.from_test(ERR_SEND)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_recv(self):
-        tlg = ebm.Edilock(ERR_RECV)
+        tlg = ebm.Edilock.from_test(ERR_RECV)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_len(self):
-        tlg = ebm.Edilock(ERR_LEN)
+        tlg = ebm.Edilock.from_test(ERR_LEN)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_type(self):
-        tlg = ebm.Edilock(ERR_TYPE)
+        tlg = ebm.Edilock.from_test(ERR_TYPE)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_zero(self):
-        tlg = ebm.Edilock(ERR_ZERO)
+        tlg = ebm.Edilock.from_test(ERR_ZERO)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_cta_gl(self):
-        tlg = ebm.Edilock(ERR_CTA_GL)
+        tlg = ebm.Edilock.from_test(ERR_CTA_GL)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_ctb_gl(self):
-        tlg = ebm.Edilock(ERR_CTB_GL)
+        tlg = ebm.Edilock.from_test(ERR_CTB_GL)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_ctab_gl(self):
-        tlg = ebm.Edilock(ERR_CTAB_GL)
+        tlg = ebm.Edilock.from_test(ERR_CTAB_GL)
         self.assertFalse(tlg.check_telegramm())
 
     # @unittest.skip("")
     def test_check_telegramm_err_len_ab(self):
-        tlg = ebm.Edilock(ERR_LEN_AB)
+        tlg = ebm.Edilock.from_test(ERR_LEN_AB)
         self.assertFalse(tlg.check_telegramm())
 
-    @unittest.skip("")
+    # @unittest.skip("")
     def test_check_telegramm_err_len_oc(self):
-        tlg = ebm.Edilock(ERR_LEN_OC)
+        tlg = ebm.Edilock.from_test(ERR_LEN_OC)
+        self.assertFalse(tlg.check_telegramm())
+
+    # @unittest.skip("")
+    def test_check_telegramm_err_not_ab(self):
+        tlg = ebm.Edilock.from_test(ERR_NOT_AB)
         self.assertFalse(tlg.check_telegramm())
 
 

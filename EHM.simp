@@ -71,7 +71,11 @@
       </counter>
       <counter>
         <item-type type-id="" type="AbstractElementGroup" />
-        <value>22</value>
+        <value>346</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="UniversalConnector" />
+        <value>8</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -129,7 +133,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-usecase" id="p4279ac6cad30453d9dce983064b4d28c_611544697" name="Система оповещения работающих на жд дороге" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-30,-95">
+      <diagram type="uml-usecase" id="p4279ac6cad30453d9dce983064b4d28c_611544697" name="Преценденты.Система оповещения" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-30,-95">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -141,7 +145,7 @@
           </authors>
           <description />
           <creation-date>03/19/2017 08:08:15</creation-date>
-          <change-date>03/19/2017 09:24:11</change-date>
+          <change-date>03/20/2017 09:36:59</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -149,7 +153,7 @@
           <item id="di987930814164554434" cid="AC001" type="actor" name="Ebilock" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
             <style class="default" />
           </item>
-          <item id="di354540637889725152" cid="UC001" type="use-case" name="Передача приказа в EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
+          <item id="di354540637889725152" cid="UC001" type="use-case" name="Передача приказа в EHA" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
             <style class="default" />
             <use-case>
               <stakeholders />
@@ -194,7 +198,7 @@
               <end-role id="" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
-          <item id="di701517272876021284" cid="AC001" type="actor" name="EHM" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
+          <item id="di701517272876021284" cid="AC001" type="actor" name="EHA" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:15:40">
             <style class="default" />
           </item>
           <item id="di475774329774008239" cid="UC001" type="use-case" name="Передать статус оповещения в Ebilock" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 08:16:27">
@@ -325,7 +329,7 @@
             <relation from="di140706183872241973" from-iid="5c23358545da48409938de8f4d3aa93a" to="di366449127974255018" to-iid="8e25f623dacf4227a41d544b6e69f238" />
           </item>
           <item id="di701517272876021284" iid="902aece5e069422499ed1b9cf19a0e6e" creation-date="03/19/2017 08:15:40" order-index="0" type="entity">
-            <layout ax="43.14948" ay="173.1329" awidth="29.42526" aheight="58.85052" x="43.14948" y="173.1329" width="29.42526" height="58.85052" name-position="0,10" name-anchor="bottom" />
+            <layout ax="43.14948" ay="173.1329" awidth="29.6495" aheight="59.299" x="43.14948" y="173.1329" width="29.6495" height="66" name-position="0,10" name-anchor="bottom" />
           </item>
           <item id="di475774329774008239" iid="36c84a55aed74da2b29700c725d930bd" creation-date="03/19/2017 08:16:27" order-index="1" type="entity">
             <layout ax="286.1495" ay="161.4677" awidth="135" aheight="84" x="286.1495" y="161.4677" width="135" height="84" angle="359.8979" />
@@ -422,6 +426,264 @@
           <revision-count>0</revision-count>
           <version />
         </meta>
+        <documentation>
+          <text>
+            <styles />
+            <content>
+              <paragraph>
+                <style />
+                <p>
+                  <t>Тесты:
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>1. </t>
+                </p>
+                <p>
+                  <t>Запуск </t>
+                </p>
+                <p>
+                  <t>-&gt;</t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>2. </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>режим </t>
+                </p>
+                <p>
+                  <t>оповещения
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3. </t>
+                </p>
+                <p>
+                  <t>Переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим(три </t>
+                </p>
+                <p>
+                  <t>условия)
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.1. </t>
+                </p>
+                <p>
+                  <t>Отсутствие </t>
+                </p>
+                <p>
+                  <t>телеграмм </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.2. </t>
+                </p>
+                <p>
+                  <t>Отсутствие </t>
+                </p>
+                <p>
+                  <t>приказа </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>пакете </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>3.3. </t>
+                </p>
+                <p>
+                  <t>Некорректный </t>
+                </p>
+                <p>
+                  <t>приказ </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>течение </t>
+                </p>
+                <p>
+                  <t>1.5с.
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4. </t>
+                </p>
+                <p>
+                  <t>Завершение </t>
+                </p>
+                <p>
+                  <t>работы
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4.1. </t>
+                </p>
+                <p>
+                  <t>Программно </t>
+                </p>
+                <p>
+                  <t>- </t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>(переход </t>
+                </p>
+                <p>
+                  <t>в </t>
+                </p>
+                <p>
+                  <t>безопасный </t>
+                </p>
+                <p>
+                  <t>режим </t>
+                </p>
+                <p>
+                  <t>-&gt;</t>
+                </p>
+                <p>
+                  <t> </t>
+                </p>
+                <p>
+                  <t>выключение)
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>4.2. </t>
+                </p>
+                <p>
+                  <t>уБИЙСТВО </t>
+                </p>
+                <p>
+                  <t>ДЕМОНА </t>
+                </p>
+                <p>
+                  <t>?
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>5. </t>
+                </p>
+                <p>
+                  <t>Перезагрузка </t>
+                </p>
+                <p>
+                  <t>-&gt; </t>
+                </p>
+                <p>
+                  <t>п.1
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+              <paragraph>
+                <style />
+                <p>
+                  <t>
+</t>
+                </p>
+              </paragraph>
+            </content>
+          </text>
+        </documentation>
         <abstract-items>
           <item id="di151920100790431752" cid="IS001" type="initial-state" name="InitialState1" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:11">
             <style class="default" />
@@ -483,7 +745,7 @@
               <trigger />
             </transition>
           </item>
-          <item id="di647381026103938441" cid="ST001" type="state" name="Приём телеграмм" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
+          <item id="di647381026103938441" cid="ST001" type="state" name="Оповещение зон" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:34:25">
             <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
               <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
               <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
@@ -508,7 +770,7 @@
             </style>
             <state-invariant />
             <actions>
-              <action name="do" behavior="Обработка приказа; Вызов зоны оповещения; Передача статуса" />
+              <action name="do" behavior="Обработка приказа; Передача статуса; Вызов зоны оповещения;" />
               <action name="" behavior="" />
             </actions>
           </item>
@@ -547,6 +809,210 @@
             </transition>
           </item>
           <item id="di458918011350056883" cid="ELEM006" type="general-transition" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="03/19/2017 21:44:07" from="di647381026103938441" to="di625194792128619396">
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="true">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                  <style name="S2" font-name="Verdana" font-size="12">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph>
+                    <style />
+                    <p s="S1">
+                      <t>1. </t>
+                    </p>
+                    <p s="S1">
+                      <t>Н</t>
+                    </p>
+                    <p s="S1">
+                      <t>екорректный </t>
+                    </p>
+                    <p s="S1">
+                      <t>приказ</t>
+                    </p>
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t>- </t>
+                    </p>
+                    <p>
+                      <t>неверные </t>
+                    </p>
+                    <p>
+                      <t>идентификаторы, </t>
+                    </p>
+                    <p>
+                      <t>контрольная </t>
+                    </p>
+                    <p>
+                      <t>сумма </t>
+                    </p>
+                    <p>
+                      <t>и </t>
+                    </p>
+                    <p>
+                      <t>т.д.
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style />
+                    <p>
+                      <t>
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style />
+                    <p s="S1">
+                      <t>2. </t>
+                    </p>
+                    <p s="S1">
+                      <t>Если </t>
+                    </p>
+                    <p s="S1">
+                      <t>внешняя </t>
+                    </p>
+                    <p s="S1">
+                      <t>система </t>
+                    </p>
+                    <p s="S1">
+                      <t>получает </t>
+                    </p>
+                    <p s="S1">
+                      <t>корректные </t>
+                    </p>
+                    <p s="S1">
+                      <t>пакеты </t>
+                    </p>
+                    <p s="S1">
+                      <t>от </t>
+                    </p>
+                    <p s="S1">
+                      <t>IPU_GATE_RF, </t>
+                    </p>
+                    <p s="S1">
+                      <t>но </t>
+                    </p>
+                    <p s="S1">
+                      <t>в </t>
+                    </p>
+                    <p s="S1">
+                      <t>этих </t>
+                    </p>
+                    <p s="S1">
+                      <t>пакетах </t>
+                    </p>
+                    <p s="S1">
+                      <t>для </t>
+                    </p>
+                    <p s="S1">
+                      <t>одного </t>
+                    </p>
+                    <p s="S1">
+                      <t>из </t>
+                    </p>
+                    <p s="S1">
+                      <t>объектных </t>
+                    </p>
+                    <p s="S1">
+                      <t>контроллеров </t>
+                    </p>
+                    <p s="S1">
+                      <t>нет </t>
+                    </p>
+                    <p s="S1">
+                      <t>приказа </t>
+                    </p>
+                    <p s="S1">
+                      <t>более </t>
+                    </p>
+                    <p s="S1">
+                      <t>чем </t>
+                    </p>
+                    <p s="S1">
+                      <t>1.5 </t>
+                    </p>
+                    <p s="S1">
+                      <t>с </t>
+                    </p>
+                    <p s="S1">
+                      <t>- </t>
+                    </p>
+                    <p s="S2">
+                      <t> </t>
+                    </p>
+                    <p s="S2">
+                      <t>требуется </t>
+                    </p>
+                    <p s="S2">
+                      <t>уточнить </t>
+                    </p>
+                    <p s="S2">
+                      <t>формулировку.
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style />
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t> </t>
+                    </p>
+                    <p>
+                      <t> 
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style />
+                    <p s="S1">
+                      <t>3. </t>
+                    </p>
+                    <p s="S1">
+                      <t>Не </t>
+                    </p>
+                    <p s="S1">
+                      <t>приходят </t>
+                    </p>
+                    <p s="S1">
+                      <t>телеграммы </t>
+                    </p>
+                    <p s="S1">
+                      <t>приказа
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style />
+                    <p>
+                      <t> 
+</t>
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
             <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" gloss-effect="true" wrap-name-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
               <text-style type="name" use-defaults="false" color="#FF000000" font="Segoe UI;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
               <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
@@ -569,10 +1035,10 @@
                 </alternate-style>
               </alternate-styles>
             </style>
-            <transition guard="" behaviourExpression="">
-              <trigger>нет корректного приказа в течение 1.5.с.</trigger>
-              <trigger>Нет приказа в течение 1.5с.</trigger>
-              <trigger>Нет пакетов с приказом в течение 1.5с.</trigger>
+            <transition guard="time out 1500msec." behaviourExpression="">
+              <trigger>Некорректный приказ</trigger>
+              <trigger>Отсутствие приказа в пакете</trigger>
+              <trigger>Не приходят телеграммы приказа</trigger>
             </transition>
           </item>
         </abstract-items>
