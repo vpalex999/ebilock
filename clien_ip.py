@@ -14,7 +14,7 @@ hdlc_list = []
 s = socket(AF_INET, SOCK_STREAM)
 s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 s.connect(('192.168.101.100', 4016))
-count = 10
+count = 100
 while status:
     #datetime.fromtimestamp()
     hdlc_list.append((s.recv(4096)))
